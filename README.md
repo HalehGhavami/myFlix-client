@@ -1,8 +1,23 @@
-## Client-Side Programming & React
+## React App (myFlix)
 
-3.2: Building with JavaScript
+## Objective
 
-## Learning Goals
+Using React, build the client-side for an application called myFlix based on its existing
+server-side code (REST API and database).
 
-Discuss the suitability of React for my application
-Prepare a product for execution using build tools
+## User Stories
+
+● As a user, I want to be able to access information on movies, directors, and genres so
+that I can learn more about movies I’ve watched or am interested in.
+
+● As a user, I want to be able to create a profile so I can save data about my favorite
+movies.
+
+## Built With
+
+- html
+- scss
+- JavaScript
+- react
+- react-dom
+- parcel
