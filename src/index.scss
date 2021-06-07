@@ -1,5 +1,10 @@
-$color: steelblue;
+$first-color: rgb(70, 104, 131);
+$second-color: rgb(253, 254, 254);
+$third-color: rgb(23, 162, 184);
 
-.my-flix {
-  color: $color;
+.body {
+  color: $second-color;
+  background-color: $first-color;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.2em;
 }
