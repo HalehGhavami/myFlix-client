@@ -14,7 +14,7 @@ export function RegistrationView() {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
 
-  const handleRegister = (e) => {
+  const onRegister = (e) => {
     e.preventDefault();
     axios
       .post('https://api-myflix.herokuapp.com/users', {
@@ -37,7 +37,7 @@ export function RegistrationView() {
   };
 
   return (
-    <Container className="registration-view" fluid="true">
+    <Container className="registration-view center mt-5" fluid="true">
       <h1 className="myflix-title">myFlix Registration</h1>
       <Form>
         <Form.Group controlId="formText">
@@ -80,7 +80,7 @@ export function RegistrationView() {
           className="submit-button"
           variant="info"
           type="submit"
-          onClick={handleRegister}
+          onClick={onRegister}
         >
           Submit
         </Button>
