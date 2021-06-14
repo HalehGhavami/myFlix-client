@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Form, Button } from 'react-bootstrap';
+import './registration-view.scss';
+import Container from 'react-bootstrap/Container';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import './registration-view.scss';
 
-export function RegistrationView(props) {
+export function RegistrationView() {
   //call the useState() method (imported from React) with an empty string This method returns an array that you destructure (break down into variables)
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -16,67 +16,84 @@ export function RegistrationView(props) {
 
   const handleRegister = (e) => {
     e.preventDefault();
+    axios
+      .post('https://api-myflix.herokuapp.com/users', {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday,
+      })
+      .then((response) => {
+        const data = response.data;
+        console.log(data);
+        window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab
+      })
+      .catch((e) => {
+        console.log('error registering the user');
+      });
 
-    console.log(username, password, email, birthday);
-    props.onRegister(username);
+    // console.log(username, password, email, birthday);
+    // props.onRegister();
   };
 
   return (
-    <div className="center">
-      <h1 className="title">myFlix</h1>
+    <Container className="registration-view" fluid="true">
+      <h1 className="myflix-title">myFlix Registration</h1>
       <Form>
-        <Form.Group controlId="formUsername">
-          <Form.Label>Username:</Form.Label>
+        <Form.Group controlId="formText">
+          <Form.Label>username</Form.Label>
           <Form.Control
             type="text"
+            placeholder="Enter username"
             value={username}
-            placeholder="Enter Username"
             onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group>
         <Form.Group controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
+            placeholder="Password"
             value={password}
-            placeholder="Enter Password"
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
         <Form.Group controlId="formEmail">
-          <Form.Label>Email:</Form.Label>
+          <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
             value={email}
-            placeholder="Enter your Email"
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter Email"
           />
         </Form.Group>
         <Form.Group controlId="formBirthday">
-          <Form.Label>Date of Birth:</Form.Label>
+          <Form.Label>Birthday</Form.Label>
           <Form.Control
             type="date"
             value={birthday}
-            placeholder="Enter your Birthday"
             onChange={(e) => setBirthday(e.target.value)}
+            placeholder="Enter Birthday"
           />
         </Form.Group>
-        <div className="middle">
-          <Button type="submit" variant="dark" onClick={handleRegister}>
-            Register
-          </Button>
-        </div>
+        <Button
+          className="submit-button"
+          variant="info"
+          type="submit"
+          onClick={handleRegister}
+        >
+          Submit
+        </Button>
+
+        <Form.Group className="login-group" controlId="formLogin">
+          <Form.Text className="text-light">Already have an account?</Form.Text>
+          <Link to={`/`}>
+            <Button className="login-link" variant="dark">
+              Login here
+            </Button>
+          </Link>
+        </Form.Group>
       </Form>
-    </div>
+    </Container>
   );
 }
-
-RegistrationView.propTypes = {
-  register: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-    Birthday: PropTypes.instanceOf(Date).isRequired,
-  }),
-  onRegister: PropTypes.func,
-};
