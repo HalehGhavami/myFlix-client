@@ -21,3 +21,24 @@ movies.
 - react
 - react-dom
 - parcel
+
+## Getting Started
+
+To run this project locally:
+install dependencies
+
+```
+npm install
+```
+
+build for development
+
+```
+parcel [path to index.html]
+```
+
+open the application in browser on port 1234 (or port number stated in terminal)
+
+```
+https://localhost:1234/
+```
