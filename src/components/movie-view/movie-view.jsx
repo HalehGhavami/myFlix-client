@@ -1,7 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import './movie-view.scss';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import PropTypes from 'prop-types';
 
 export class MovieView extends React.Component {
   render() {
@@ -20,13 +22,26 @@ export class MovieView extends React.Component {
           <span className="value">{movie.Description}</span>
         </div>
         <div className="movie-genre my-2">
-          <span className="label font-weight-bold">Genre: </span>
+          <span className="label font-weight-bold">
+            <Link to={`/genres/${movie.Genre.Name}`}>
+              <Button variant=" info" className="my-3 font-weight-bold">
+                Genre:{' '}
+              </Button>
+            </Link>
+          </span>
           <span className="value">{movie.Genre.Name}</span>
         </div>
+
         <div className="movie-director my-2">
-          <span className="label font-weight-bold">Director: </span>
+          <Link to={`/directors/${movie.Director.Name}`}>
+            <Button variant=" info" className="my-3 font-weight-bold">
+              Director:
+            </Button>
+          </Link>
+
           <span className="value">{movie.Director.Name}</span>
         </div>
+
         <Button
           onClick={() => {
             onBackClick(null);
@@ -40,7 +55,6 @@ export class MovieView extends React.Component {
     );
   }
 }
-
 MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
