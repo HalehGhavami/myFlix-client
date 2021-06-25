@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button, Container } from 'react-bootstrap';
-import PropTypes from 'prop-types';
+import { Button, Container, Row } from 'react-bootstrap';
+// import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './director-view.scss';
 
 export class DirectorView extends React.Component {
   render() {
-    const { director, onBackClick } = this.props;
+    const { director, movies } = this.props;
     return (
       <Container fluid className="DirectorView">
         <div className="director-view">
@@ -21,26 +22,26 @@ export class DirectorView extends React.Component {
             <span className="label font-weight-bold">Born: </span>
             <span className="value">{director.Birth}</span>
           </div>
-          <Button
-            variant="info"
-            size="sm"
-            onClick={() => {
-              onBackClick(null);
-            }}
-          >
-            Back
-          </Button>
+          <div className="director-death">
+            <span className="label font-weight-bold">Death: </span>
+            <span className="value">{director.Death}</span>
+          </div>
+          <Row>
+            <div className="director-movies">
+              <span className="label font-weight-bold">Movies: </span>
+              {movies.map((m) => (
+                <div className="movie" key={m._id}>
+                  {m.Title}
+                </div>
+              ))}
+            </div>
+          </Row>
+
+          <Link to={'/'}>
+            <Button variant="info">Back</Button>
+          </Link>
         </div>
       </Container>
     );
   }
 }
-
-DirectorView.propTypes = {
-  director: PropTypes.shape({
-    Name: PropTypes.string.isRequired,
-    Bio: PropTypes.string.isRequired,
-    Birth: PropTypes.string.isRequired,
-  }),
-  onBackClick: PropTypes.func.isRequired,
-};
