@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
+import PropTypes from 'prop-types';
 import './login-view.scss';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 export function LoginView(props) {
+  // hook updates function state
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  // login function
   //The extra (e) in the code, as well as the e.preventDefault(); method, prevents the default refresh/change of the page from the handleSubmit() method.
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,12 +27,13 @@ export function LoginView(props) {
       })
       .catch((e) => {
         console.log('no such user');
+        alert('Register an account.');
       });
   };
 
   return (
     <Container className="login-view center" fluid="true">
-      <h1 className="title">myFlix</h1>
+      <h1 className="title">login to myFlix</h1>
       <Form>
         <Form.Group controlId="formUsername">
           <Form.Label></Form.Label>
@@ -76,3 +80,7 @@ export function LoginView(props) {
     </Container>
   );
 }
+// static propTypes properties for LoginView
+LoginView.propTypes = {
+  onLoggedIn: PropTypes.func.isRequired,
+};
