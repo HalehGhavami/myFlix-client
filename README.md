@@ -1,5 +1,7 @@
 ## React App (myFlix)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4332f5be-1029-48d6-bfa5-e2f07fba4524/deploy-status)](https://app.netlify.com/sites/myflix-haleh/deploys)
+
 ## Objective
 
 Using React, build the client-side for an application called myFlix based on its existing
