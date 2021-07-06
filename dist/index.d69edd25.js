@@ -41547,7 +41547,7 @@ class MovieView extends _reactDefault.default.Component {
         const username = localStorage.getItem('user');
         _axiosDefault.default({
             method: 'post',
-            url: `http://api-myflix.herokuapp.com/users/${username}/favorites/${movie._id}`,
+            url: `https://api-myflix.herokuapp.com/users/${username}/favorites/${movie._id}`,
             headers: {
                 Authorization: `Bearer ${token}`
             }
