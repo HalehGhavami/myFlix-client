@@ -1,5 +1,9 @@
 # React App (myFlix)
 
+<p align="center">
+  <img src="img/myFlix.png" width="520">
+  </p>
+  
 ## Objective
 
 Using React, build the client-side for an application called myFlix based on its existing
