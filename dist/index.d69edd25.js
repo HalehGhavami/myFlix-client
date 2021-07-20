@@ -42528,6 +42528,6 @@ ProfileView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap":"4n7hB","./profile-view.scss":"4nuoR","react-router-dom":"1PMSK","axios":"7rA65","react-redux":"7GDa4","../../actions/actions":"5S6cN","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"4nuoR":[function() {},{}],"7KL8b":[function() {},{}],"3q5wT":[function() {},{}]},["1j6wU","5zFrH","ciYab"], "ciYab", "parcelRequire279c")
+},{"react":"3b2NM","./profile-view.scss":"4nuoR","react-router-dom":"1PMSK","axios":"7rA65","@parcel/transformer-js/src/esmodule-helpers.js":"367CR","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","prop-types":"4dfy5","react-bootstrap":"4n7hB","react-redux":"7GDa4","../../actions/actions":"5S6cN"}],"4nuoR":[function() {},{}],"7KL8b":[function() {},{}],"3q5wT":[function() {},{}]},["1j6wU","5zFrH","ciYab"], "ciYab", "parcelRequire279c")
 
 //# sourceMappingURL=index.d69edd25.js.map
